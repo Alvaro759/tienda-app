@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('table_perteneciente', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
             $table->string('idProducto');
             $table->foreign('idProdcuto')->references('id')->on('producto');
             $table->string('idCategoria');

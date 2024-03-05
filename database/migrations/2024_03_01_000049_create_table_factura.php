@@ -19,8 +19,6 @@ return new class extends Migration
             $table->foreign('idCliente')->references('id')->on('users');
             $table->string('idDireccion');
             $table->foreign('idDireccion')->references('id')->on('direccion');
-            $table->string('idCarrito');
-            $table->foreign('idCarrito')->references('id')->on('carrito');
         });
     }
 

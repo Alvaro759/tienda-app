@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('precio');
             $table->string('stock');
             $table->string('idCategoria');
-            $table->foreign('idCliente')->references('id')->on('categoria');
+            $table->foreign('idCategoria')->references('id')->on('categoria');
             $table->string('idAlmacen');
             $table->foreign('idAlmacen')->references('id')->on('almacen');
         });

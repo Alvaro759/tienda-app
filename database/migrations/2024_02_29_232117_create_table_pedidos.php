@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('idFactura');
-            $table->foreign('idFactura')->references('id')->on('factura');
+            $table->string('idUsuario');
+            $table->foreign('idUsuario')->references('id')->on('usuario');
             $table->string('idDireccion');
             $table->foreign('idDireccion')->references('id')->on('direccion');
         });
