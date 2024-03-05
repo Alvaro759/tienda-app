@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('almacen', function (Blueprint $table) {
+        Schema::create('pertenecientes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nombre');
-            $table->string('lugar');
+            $table->unsignedBigInteger('idProducto');
+            $table->foreign('idProducto')->references('id')->on('productos');
+            $table->unsignedBigInteger('idCategoria');
+            $table->foreign('idCategoria')->references('id')->on('categorias');
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('almacen');
+        Schema::dropIfExists('pertenecientes');
     }
 };

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('users');
             $table->unsignedBigInteger('idFactura');
-            $table->foreign('idFactura')->references('id')->on('factura');
+            $table->foreign('idFactura')->references('id')->on('facturas');
         });
     }
 

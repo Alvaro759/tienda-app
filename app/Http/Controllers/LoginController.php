@@ -18,13 +18,13 @@ class LoginController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);;
+        $user->password = Hash::make($request->password);
 
         $user->save();
 
         Auth::login($user);
 
-        return redirect(route('inicio'));
+        return redirect(route('login'));
     }
 
     public function login(Request $request){
@@ -43,7 +43,7 @@ class LoginController extends Controller
 
             return redirect()->intended(route('inicio'));
         }else{
-            return redirect(route('login'));
+            return redirect(route('loginFailed'));
         }
     }
 
