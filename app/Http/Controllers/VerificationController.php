@@ -7,22 +7,22 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class VerificationController extends Controller
 {
-    public function showVerification(Request $request){
-        $id = $request->user()->getKey();
-        $hash = sha1($request->user()->getEmailForVerification());
-
-        return view('auth.verify-email', compact('id', 'hash'));
+    public function showVerification()
+    {
+        return view('auth.verify-email');
     }
 
-    public function verification(EmailVerificationRequest $request, $id, $hash) {
+    public function verification(EmailVerificationRequest $request)
+    {
         $request->fulfill();
-     
+
         return redirect('/inicio');
     }
 
-    public function sendEmail(Request $request){
-        $request->user()->sendEmailVerificationEmail();
-        
+    public function sendEmail(Request $request)
+    {
+        $request->user()->sendEmailVerificationNotification();
+
         return back()->with('message', 'Link de verificación enviado!');
     }
 }

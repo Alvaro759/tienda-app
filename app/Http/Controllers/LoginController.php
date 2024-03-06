@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     //
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         // Validar los datos
 
         $user = new User();
@@ -27,27 +28,29 @@ class LoginController extends Controller
         return redirect(route('login'));
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
         // Validacion
         $credentials = [
             "email" => $request->email,
             "password" => $request->password,
         ];
-        
+
         $remember = ($request->has('remember') ? true : false);
 
-        if(Auth::attempt($credentials, $remember)){
+        if (Auth::attempt($credentials, $remember)) {
 
             $request->session()->regenerate();
 
             return redirect()->intended(route('inicio'));
-        }else{
+        } else {
             return redirect(route('loginFailed'));
         }
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();

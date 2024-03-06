@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,11 +50,21 @@
         }
     </style>
 </head>
+
 <body>
     <div class="verification-container">
         <h2>Verificar Correo Electrónico</h2>
         <p>Haz clic en el botón de abajo para verificar tu correo electrónico.</p>
-        <a href="{{ route('verification.verify', ['id' => $id, 'hash' => $hash]) }}" class="verification-button">Verificar Correo Electrónico</a>
+        <a method="post" href="{{ route('verification.send') }}" class="verification-button">Enviar Correo Electrónico</a>
     </div>
+    <form action="{{ route('verification.send') }}" method="post">
+        @csrf
+        <div class="verification-container">
+            <h2>Verificar Correo Electrónico</h2>
+            <p>Haz clic en el botón de abajo para verificar tu correo electrónico.</p>
+            <button type="submit" class="verification-button">Enviar Correo Electrónico</button>
+        </div>
+    </form>
 </body>
+
 </html>
