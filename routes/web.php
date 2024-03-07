@@ -22,7 +22,7 @@ Route::post('/email/verification-notification', [VerificationController::class, 
 
 Route::view('/login', "login")->name('login');
 Route::view('/registro', "register")->name('registro');
-Route::view('/inicio', "inicio")->middleware('auth', 'verified')->name('inicio');
+Route::view('/inicio', "crud")->middleware('auth', 'verified')->name('inicio');
 Route::view('/login/failed', "loginFailed")->name('loginFailed');
 
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');

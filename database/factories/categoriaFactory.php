@@ -16,8 +16,11 @@ class categoriaFactory extends Factory
      */
     public function definition(): array
     {
+        $categorias = ['Gaming', 'Portátiles', 'Componentes', 'Monitores', 'Smartphones', 'Televisores'];
+        $numAleatorio = random_int(0, 5);
+        
         return [
-            'nombre' => fake()->name(),
+            'nombre' => $categorias[$numAleatorio],
             'descripcion' => fake()->text(),
         ];
     }

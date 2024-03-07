@@ -3,13 +3,13 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\almacene;
+use App\Models\producto;
 use App\Models\categoria;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\productoModel>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\perteneciente>
  */
-class productoFactory extends Factory
+class pertenecienteFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,15 +18,11 @@ class productoFactory extends Factory
      */
     public function definition(): array
     {
+        $idProducto = producto::inRandomOrder()->first()->id;
         $idCategoria = categoria::inRandomOrder()->first()->id;
-        $idAlmacen = almacene::inRandomOrder()->first()->id;
-
         return [
-            'nombre' => fake()->name(),
-            'precio' => fake()->numberBetween(20,1000),
-            'stock' => fake()->numberBetween(0,10000),
+            'idProducto' => $idProducto,
             'idCategoria' => $idCategoria,
-            'idAlmacen' => $idAlmacen,
         ];
     }
 }

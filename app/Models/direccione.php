@@ -15,5 +15,6 @@ class direccione extends Model
         'codigoPostal', 
         'provincia',
         'pais',
+        'idCliente',
     ];
 }

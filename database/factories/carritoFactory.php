@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\producto;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\almacene>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\carrito>
  */
-class almaceneFactory extends Factory
+class carritoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,9 +17,11 @@ class almaceneFactory extends Factory
      */
     public function definition(): array
     {
+        $idProducto = producto::inRandomOrder()->first()->id;
+
         return [
             'nombre' => fake()->name(),
-            'lugar' => fake()->city(),
+            'idProducto' => $idProducto,
         ];
     }
 }

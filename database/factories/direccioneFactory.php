@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\direccione>
@@ -16,12 +17,16 @@ class direccioneFactory extends Factory
      */
     public function definition(): array
     {
+       // Obtener un ID de usuario aleatorio
+       $userId = User::inRandomOrder()->first()->id;
+            
         return [
-            'calle' => fake()->name(),
-            'numero' => fake()->numberBetween(0,30),
-            'codigoPostal' => fake()->numberBetween(0,50000),
-            'provincia' => fake()->name(),
-            'pais' => fake()->name(),
+            'calle' => fake()->streetName(),
+            'numero' => fake()->numberBetween(1,100),
+            'codigoPostal' => fake()->postcode(),
+            'provincia' => fake()->state(),
+            'pais' => fake()->country(),
+            'idCliente'=>$userId,
         ];
     }
 }
