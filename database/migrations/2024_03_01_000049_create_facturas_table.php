@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->unsignedBigInteger('idCliente');
-            $table->foreign('idCliente')->references('id')->on('users');
+            $table->foreign('idCliente')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('idDireccion');
-            $table->foreign('idDireccion')->references('id')->on('direcciones');
+            $table->foreign('idDireccion')->references('id')->on('direcciones')->onDelete('cascade');
         });
     }
 

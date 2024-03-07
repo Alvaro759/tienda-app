@@ -43,7 +43,7 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended(route('inicio'));
+            return redirect()->intended(route('categoria.index'));
         } else {
             return redirect(route('loginFailed'));
         }
@@ -56,6 +56,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('inicio'));
+        return redirect(route('categoria.index'));
     }
 }

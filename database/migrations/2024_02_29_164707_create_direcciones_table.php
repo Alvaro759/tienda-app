@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('provincia');
             $table->string('pais');
             $table->unsignedBigInteger('idCliente');
-            $table->foreign('idCliente')->references('id')->on('users');
+            $table->foreign('idCliente')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->unsignedBigInteger('idUsuario');
-            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->foreign('idUsuario')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('idFactura');
-            $table->foreign('idFactura')->references('id')->on('facturas');
+            $table->foreign('idFactura')->references('id')->on('facturas')->onDelete('cascade');
         });
     }
 

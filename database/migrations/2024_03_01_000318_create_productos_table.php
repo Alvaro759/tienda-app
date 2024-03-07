@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('precio');
             $table->unsignedBigInteger('stock');
             $table->unsignedBigInteger('idCategoria');
-            $table->foreign('idCategoria')->references('id')->on('categorias');
+            $table->foreign('idCategoria')->references('id')->on('categorias')->onDelete('cascade');
             $table->unsignedBigInteger('idAlmacen');
-            $table->foreign('idAlmacen')->references('id')->on('almacenes');
+            $table->foreign('idAlmacen')->references('id')->on('almacenes')->onDelete('cascade');
         });
     }
 
