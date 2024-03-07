@@ -52,11 +52,6 @@
 </head>
 
 <body>
-    <div class="verification-container">
-        <h2>Verificar Correo Electrónico</h2>
-        <p>Haz clic en el botón de abajo para verificar tu correo electrónico.</p>
-        <a method="post" href="{{ route('verification.send') }}" class="verification-button">Enviar Correo Electrónico</a>
-    </div>
     <form action="{{ route('verification.send') }}" method="post">
         @csrf
         <div class="verification-container">
