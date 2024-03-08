@@ -22,8 +22,9 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|max:70|min:5',
+            'name' => 'required|max:70|min:5',
             'email' => 'required|max:70',
+            'password' => 'required',
         ]);
         user::create($request->all());
 
@@ -51,8 +52,7 @@ class UsuarioController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id' => 'required',
-            'nombre' => 'required|max:70|min:5',
+            'name' => 'required|max:70|min:5',
             'email' => 'required|max:70',
             'password' => 'required',
         ]);
