@@ -36,9 +36,20 @@
                 <div class="card-body">
                     <p class="card-text">email: {{ $usuario->email }}</p>
                 </div>
+                <div class="card-body">
+                    <p class="card-text">Email Verificado: <?php
+                    if($usuario->email_verified_at){
+                        print("✅");
+                    } else {
+                        print("❌");
+                    }?></p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Cuenta Creada: {{ $usuario->created_at }}</p>
+                </div>
                 <div class="card-footer">
-                    <a href="{{route('usuario.edit', $usuario->id)}}" class="btn btn-primary btn-sm mb-2">Edit</a>
-                    <form action="{{route('usuario.destroy', $usuario->id)}}" method="post">
+                    <a href="{{ route('usuario.edit', $usuario->id) }}" class="btn btn-primary btn-sm mb-2">Edit</a>
+                    <form action="{{ route('usuario.destroy', $usuario->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
