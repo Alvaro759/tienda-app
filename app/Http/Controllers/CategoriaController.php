@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\categoria;
+use App\Models\producto;
 
 class CategoriaController extends Controller
 {
@@ -41,8 +42,15 @@ class CategoriaController extends Controller
     public function show(string $id)
     {
         $categoria = categoria::find($id);
+        $productos = producto::all();
 
-        return view('categoria.show', compact('categoria'));
+        for ($i = 0; $i < count($productos); $i++) {
+            if ($productos[$i]['idCategoria'] == $id) {
+                $producto[] = $productos[$i];
+            };
+        }
+
+        return view('categoria.show', compact('categoria', 'producto'));
     }
 
     /**

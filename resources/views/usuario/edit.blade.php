@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <title>Edit Usuarios</title>
 </head>
@@ -18,7 +17,7 @@
             <div class="justify-end ">
                 <div class="col ">
                     <a class="btn btn-sm btn-primary" href={{ route('usuario.index') }}>Listar Usuarios</a>
-                    <a class="btn btn-sm btn-success" href={{ route('usuario.create') }}>Añadir usuarios</a>    
+                    <a class="btn btn-sm btn-success" href={{ route('usuario.create') }}>Añadir usuarios</a>
                     <a class="btn btn-sm btn-danger" href={{ route('logout') }}>Salir</a>
                 </div>
             </div>
@@ -26,24 +25,25 @@
     <div class="container h-100 mt-5">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-6">
-                <h3>Update Post</h3>
+                <h3>Update Usuario</h3>
                 <form action="{{ route('usuario.update', $usuario->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label for="id">id</label>
-                        <input type="text" class="form-control" id="id" name="id"
-                            value="{{ $usuario->id }}" required>
+                        <input type="text" class="form-control" id="id" name="id" value="{{ $usuario->id }}" disabled>
                     </div>
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $usuario->name }}" required>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $usuario->name }}" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" name="email"
-                            value="{{ $usuario->email }}" required>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ $usuario->email }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" value="{{ $usuario->password }}" required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Actualizar Usuario</button>

@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Usuarios</title>
     <style>
-        a{
+        a {
             text-decoration: none;
             color: black;
         }
@@ -40,19 +39,19 @@
                 </thead>
                 <tbody>
                     @foreach ($usuarios as $usuario)
-                        <tr class="">
-                            <td scope="row"><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->id }}</a></td>
-                            <td scope="row"><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->name }}</a></td>
-                            <td><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->email }}</a></td>
-                            <td><a href="{{route('usuario.edit', $usuario->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
-                            <td>
-                                <form action="{{route('usuario.destroy', $usuario->id)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr class="">
+                        <td scope="row"><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->id }}</a></td>
+                        <td scope="row"><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->name }}</a></td>
+                        <td><a href={{route('usuario.show', $usuario->id)}}>{{ $usuario->email }}</a></td>
+                        <td><a href="{{route('usuario.edit', $usuario->id)}}" class="btn btn-primary btn-sm">Edit</a></td>
+                        <td>
+                            <form action="{{route('usuario.destroy', $usuario->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
